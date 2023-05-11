@@ -1,5 +1,6 @@
 import datetime
 
+
 class Vehicles:
     def __init__(self, capacity=0):
         self.capacity = capacity
@@ -35,7 +36,7 @@ class Vehicles:
             return (et, ent_time.strftime('%Y-%m-%d %H:%M:%S'),
                     exit_time.strftime('%Y-%m-%d %H:%M:%S'))
         else:
-            print("No such vehicle in parking")
+            raise Exception("No such vehicle in parking")
 
 
 class Truck(Vehicles):

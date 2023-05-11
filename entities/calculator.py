@@ -1,6 +1,7 @@
 from constants import constants
-from vehicles import Car, Truck, Scooter
+from entities.vehicles import Car, Truck, Scooter
 import math
+
 
 
 class Calculator:
@@ -97,6 +98,7 @@ class Calculator:
             fee = getattr(self, "_calculate_" + "%s" % type.lower() + "_fee")(math.ceil(et[0]))
             print("Fee: ", fee)
             self._remove_ticket_from_slot(ticket_no)
+            return fee
 
 
 class MallCalculator(Calculator):
@@ -119,7 +121,7 @@ class MallCalculator(Calculator):
         return constants.MallFee.TRUCK_FEE * et
 
     def unpark(self, type, ticket_no, exit_time):
-        super().unpark(type, ticket_no, exit_time)
+        return super().unpark(type, ticket_no, exit_time)
 
 class StadiumCalculator(Calculator):
     def __init__(self):
@@ -164,7 +166,7 @@ class StadiumCalculator(Calculator):
                    constants.StadiumFee.CAR_SECOND_SLAB + math.ceil(et-constants.TWELVE)*constants.StadiumFee.CAR_THIRD_SLAB
 
     def unpark(self, type, ticket_no, exit_time):
-        super().unpark(type, ticket_no, exit_time)
+        return super().unpark(type, ticket_no, exit_time)
 
 
 class AirportCalculator(Calculator):
@@ -207,7 +209,7 @@ class AirportCalculator(Calculator):
         super().park(type, entry_time)
 
     def unpark(self, type, ticket_no, exit_time):
-        super().unpark(type, ticket_no, exit_time)
+        return super().unpark(type, ticket_no, exit_time)
 
 
 if __name__ == "__main__":
