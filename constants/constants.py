@@ -3,6 +3,9 @@ import math
 SCOOTER = 'scooter'
 TRUCK = 'truck'
 CAR = 'car'
+MALL = "mall"
+STADIUM = "stadium"
+AIRPORT = "airport"
 NO_FEE = 0
 ONE = 1
 EIGHT = 8
