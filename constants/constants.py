@@ -1,6 +1,14 @@
+import math
+
 SCOOTER = 'scooter'
 TRUCK = 'truck'
 CAR = 'car'
+NO_FEE = 0
+ONE = 1
+EIGHT = 8
+TWELVE = 12
+TWENTY_FOUR = 24
+FOUR = 4
 
 
 class MallFee:
@@ -10,8 +18,18 @@ class MallFee:
 
 
 class AirportFee:
-    def get_scooter_fee(self, et):
-        if 0 <= et < 1:
-            return 0
-        elif 1 <= et < 8:
-            return
+    SCOOTER_FIRST_SLAB = 40
+    SCOOTER_SEC_SLAB = 60
+    SCOOTER_THIRD_SLAB = 80
+    CAR_FIRST_SLAB = 60
+    CAR_SECOND_SLAB = 80
+    CAR_THIRD_SLAB = 100
+
+
+class StadiumFee:
+    SCOOTER_FIRST_SLAB = 30
+    SCOOTER_SECOND_SLAB = 60
+    SCOOTER_THIRD_SLAB = 100
+    CAR_FIRST_SLAB = 60
+    CAR_SECOND_SLAB = 120
+    CAR_THIRD_SLAB = 200

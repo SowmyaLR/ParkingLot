@@ -28,10 +28,11 @@ class Vehicles:
             from datetime import timedelta
             exit_time = datetime.datetime.strptime(exit_time, '%Y-%m-%d %H:%M:%S.%f')
             et = exit_time - self.vehicle_data[ticket_no]
+            et = et / timedelta(hours=1)
             ent_time = self.vehicle_data[ticket_no]
             del (self.vehicle_data[ticket_no])
             self.capacity += 1
-            return (et / timedelta(hours=1), ent_time.strftime('%Y-%m-%d %H:%M:%S'),
+            return (et, ent_time.strftime('%Y-%m-%d %H:%M:%S'),
                     exit_time.strftime('%Y-%m-%d %H:%M:%S'))
         else:
             print("No such vehicle in parking")
