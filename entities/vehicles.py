@@ -14,21 +14,25 @@ class Vehicles:
 
     def park(self, slot_no, entry_time):
         ticket_no = self.__generate_ticket_no(slot_no)
-        if not self.__is_valid_vehicle(ticket_no):
+        if self.capacity > 0 and not self.__is_valid_vehicle(ticket_no):
             self.vehicle_data[ticket_no] = datetime.datetime.strptime(entry_time, '%Y-%m-%d %H:%M:%S.%f')
             self.capacity -= 1
-            print(f"Parking Data: \n Ticket no: {ticket_no}\n "
+            print(f"Parking Ticket: \n Ticket no: {ticket_no}\n "
                   f"Slot No: {slot_no} \n Entry Time: {entry_time}")
             return ticket_no
         else:
-            print("vehicle already in parking")
+            print("vehicle already in parking or no spots for parking")
 
     def unpark(self, ticket_no, exit_time):
         if self.__is_valid_vehicle(ticket_no):
             from datetime import timedelta
-            et = datetime.datetime.strptime(exit_time, '%Y-%m-%d %H:%M:%S.%f') - self.vehicle_data[ticket_no]
-            del(self.vehicle_data[ticket_no])
-            return et/timedelta(hours=1)
+            exit_time = datetime.datetime.strptime(exit_time, '%Y-%m-%d %H:%M:%S.%f')
+            et = exit_time - self.vehicle_data[ticket_no]
+            ent_time = self.vehicle_data[ticket_no]
+            del (self.vehicle_data[ticket_no])
+            self.capacity += 1
+            return (et / timedelta(hours=1), ent_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    exit_time.strftime('%Y-%m-%d %H:%M:%S'))
         else:
             print("No such vehicle in parking")
 
@@ -49,7 +53,7 @@ class Car(Vehicles):
         super().__init__(capacity)
 
     def park(self, slot_no, entry_time):
-        super().park(slot_no,entry_time)
+        super().park(slot_no, entry_time)
 
     def unpark(self, ticket_no, exit_time):
         return super().unpark(ticket_no, exit_time)
@@ -60,7 +64,7 @@ class Scooter(Vehicles):
         super().__init__(capacity)
 
     def park(self, slot_no, entry_time):
-        super().park(slot_no,entry_time)
+        super().park(slot_no, entry_time)
 
     def unpark(self, ticket_no, exit_time):
         return super().unpark(ticket_no, exit_time)
