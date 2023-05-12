@@ -1,0 +1,38 @@
+import math
+
+SCOOTER = 'scooter'
+TRUCK = 'truck'
+CAR = 'car'
+MALL = "mall"
+STADIUM = "stadium"
+AIRPORT = "airport"
+NO_FEE = 0
+ONE = 1
+EIGHT = 8
+TWELVE = 12
+TWENTY_FOUR = 24
+FOUR = 4
+
+
+class MallFee:
+    SCOOTER_FEE = 10
+    CAR_FEE = 20
+    TRUCK_FEE = 50
+
+
+class AirportFee:
+    SCOOTER_FIRST_SLAB = 40
+    SCOOTER_SEC_SLAB = 60
+    SCOOTER_THIRD_SLAB = 80
+    CAR_FIRST_SLAB = 60
+    CAR_SECOND_SLAB = 80
+    CAR_THIRD_SLAB = 100
+
+
+class StadiumFee:
+    SCOOTER_FIRST_SLAB = 30
+    SCOOTER_SECOND_SLAB = 60
+    SCOOTER_THIRD_SLAB = 100
+    CAR_FIRST_SLAB = 60
+    CAR_SECOND_SLAB = 120
+    CAR_THIRD_SLAB = 200
