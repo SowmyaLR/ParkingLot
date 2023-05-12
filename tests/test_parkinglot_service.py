@@ -19,3 +19,9 @@ class TestParkinglotService(unittest.TestCase):
         ps = ParkingLotService()
         print(file_path)
         ps.calculate_bill(f"{file_path}/inputs/case3")
+
+    def test_case4(self):
+        file_path = "/".join(os.path.dirname(__file__).split("/")[:-1])
+        ps = ParkingLotService()
+        print(file_path)
+        ps.calculate_bill(f"{file_path}/inputs/case5")
