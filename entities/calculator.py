@@ -54,7 +54,7 @@ class Calculator:
         if not self._is_full():
             return self._generate_slot_no()
         else:
-            print("Parking is full")
+            raise Exception("Parking is full")
 
     def _park_scooter(self, slot_no, entry_time):
         return self.scooter.park(slot_no, entry_time)
@@ -141,7 +141,6 @@ class StadiumCalculator(Calculator):
             self.init_capacity = copy.deepcopy(self.place_capacity)
         elif type == constants.TRUCK:
             raise Exception("Trucks not allowed inside stadium")
-        print("capacity: ", self.place_capacity)
 
     def park(self, type, entry_time):
         super().park(type, entry_time)
@@ -210,42 +209,3 @@ class AirportCalculator(Calculator):
     def unpark(self, type, ticket_no, exit_time):
         return super().unpark(type, ticket_no, exit_time)
 
-
-if __name__ == "__main__":
-    # print("=============== MAll ============")
-    # mc = MallCalculator()
-    # mc.set_capacity("scooter", 20)
-    # mc.set_capacity("truck", 3)
-    # mc.set_capacity("car", 30)
-    # print(mc.park("scooter", "2023-05-10 13:06:42.195002"))
-    # print(mc.park("car", "2023-05-10 14:06:42.195002"))
-    # print(mc.park("truck", "2023-05-10 13:06:42.195002"))
-    #
-    # print(mc.unpark("scooter", "01", "2023-05-10 18:06:42.195002"))
-    # print(mc.unpark("car", "02", "2023-05-10 18:06:42.195002"))
-    # print(mc.unpark("truck", "3", "2023-05-10 18:06:42.195002"))
-    #
-    #
-    # print(" ===== Airport =======")
-    # mc = AirportCalculator()
-    # mc.set_capacity("scooter", 20)
-    #
-    # mc.set_capacity("car", 30)
-    # print(mc.park("scooter", "2023-05-10 13:06:42.195002"))
-    # print(mc.park("car", "2023-05-10 14:06:42.195002"))
-    #
-    #
-    # print(mc.unpark("scooter", "01", "2023-05-10 18:06:42.195002"))
-    # print(mc.unpark("car", "02", "2023-05-12 18:06:42.195002"))
-
-    print("== stadium ===")
-    mc = StadiumCalculator()
-    mc.set_capacity("scooter", 20)
-    # mc.set_capacity("truck", 3)
-    mc.set_capacity("car", 30)
-    print(mc.park("scooter", "2023-05-10 13:06:42.195002"))
-    print(mc.park("car", "2023-05-10 08:06:42.195002"))
-    # print(mc.park("truck", "2023-05-10 13:06:42.195002"))
-
-    print(mc.unpark("scooter", "01", "2023-05-10 18:06:42.195002"))
-    print(mc.unpark("car", "02", "2023-05-10 22:06:42.195002"))

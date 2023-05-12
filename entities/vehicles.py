@@ -22,7 +22,7 @@ class Vehicles:
                   f"Slot No: {slot_no} \n Entry Time: {entry_time}")
             return ticket_no
         else:
-            print("vehicle already in parking or no spots for parking")
+            raise Exception("vehicle already in parking or no spots for parking")
 
     def unpark(self, ticket_no, exit_time):
         if self.__is_valid_vehicle(ticket_no):
@@ -71,15 +71,3 @@ class Scooter(Vehicles):
     def unpark(self, ticket_no, exit_time):
         return super().unpark(ticket_no, exit_time)
 
-
-if __name__ == "__main__":
-    # v = Vehicles(30)
-    t = Truck(120)
-    c = Car(34)
-    # v.park(34,"5556")
-    t.park(1, "2023-05-10 13:06:42.195002")
-    c.park(2, "2023-05-10 13:54:15.200891")
-    # v.unpark(1, 2)
-    et = t.unpark("001", "2023-05-10 19:58:10.224214")
-    print(et)
-    print(c.unpark("02", "2023-05-10 19:58:10.224214"))
