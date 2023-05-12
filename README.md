@@ -3,6 +3,15 @@ Given a parking lot with details about the vehicle types that can be parked, the
 spots, and the fee model for the parking lot; compute the fees to be paid for the parked
 vehicles when the vehicle is unparked.
 
+# Class diagram of this problem
+
+<img width="605" alt="Screenshot 2023-05-12 at 10 45 40 AM" src="https://github.com/SowmyaLR/ParkingLot/assets/15843240/f18f5a80-aaf5-4927-897f-56fec12c93c4">
+
+
+<img width="683" alt="Screenshot 2023-05-12 at 10 45 53 AM" src="https://github.com/SowmyaLR/ParkingLot/assets/15843240/f61ea30b-69bd-484f-a651-4a5d9e814108">
+
+
+
 
 # Commands used in this solution
 
