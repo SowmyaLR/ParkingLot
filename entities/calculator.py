@@ -33,7 +33,6 @@ class Calculator:
             self.truck = self.type_obj[type](capacity)
             self.place_capacity += capacity
             self.init_capacity = copy.deepcopy(self.place_capacity)
-        print("capacity: ", self.place_capacity)
 
     def _is_full(self):
         return self.place_capacity <= 0
